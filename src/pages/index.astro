@@ -1,0 +1,443 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const socials = [
+  { name: 'GitHub', url: 'https://github.com/avieradev', icon: 'github' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/adrianvieracorral', icon: 'linkedin' },
+  { name: 'Email', url: 'mailto:avieradev@gmail.com', icon: 'email' },
+];
+
+const stack = [
+  'TypeScript', 'React', 'Node.js', 'Python',
+  'PostgreSQL', 'Oracle', 'MongoDB', 'GraphQL',
+  'Express', 'Docker', 'Astro', 'Tailwind',
+  'AI Pair Programming', 'Vibe Coding'
+];
+
+const projects = [
+  {
+    title: 'GiftCal',
+    description: 'App móvil para gestionar regalos y eventos. React Native + Expo, PostgreSQL backend, notificaciones push, autenticación OAuth. Construida 100% con vibe coding.',
+    tags: ['React Native', 'Expo', 'PostgreSQL', 'Vibe Coding', 'En desarrollo'],
+    link: '#'
+  },
+  {
+    title: 'aviera.dev',
+    description: 'Este portfolio — diseñado y construido conversando con AI. Cero templates, puro vibe coding.',
+    tags: ['Astro', 'Vibe Coding', 'AI Pair Programming'],
+    link: 'https://aviera.dev'
+  }
+];
+---
+
+<Layout title="Adri Viera | Full Stack Developer" description="Ingeniero Informático UAB. 6+ años de experiencia. Ahora explorando vibe coding y proyectos guiados por AI. Barcelona.">
+  
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-greeting">Hola, me llamo</p>
+      <h1 class="hero-name">
+        <span class="first">Adri</span>
+        <span class="last">Viera</span>
+      </h1>
+      <p class="hero-role">
+        Full Stack <span class="accent">Dev</span>eloper
+      </p>
+      <p class="hero-location">📍 Barcelona, Spain</p>
+      
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Hablemos</a>
+        <a href="#projects" class="btn btn-secondary">Ver proyectos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="container">
+      <p class="section-title">Sobre mí</p>
+      <div class="about-content">
+        <p class="about-text">
+          <strong>Ingeniero Informático</strong> por la Universitat Autònoma de Barcelona. 
+          6+ años trabajando con PostgreSQL, Oracle, Mongo, React, Node, Python, GraphQL, Express — 
+          el stack tradicional, el que se aprende en la trinchera.
+        </p>
+        <p class="about-text">
+          Pero ahora estoy en otra. Practicando <strong>vibe coding</strong>: proyectos guiados 
+          por conversación con AI, iterando rápido, dejando que la inteligencia artificial haga 
+          el trabajo pesado mientras yo enfoco en la visión. Este portfolio es el primero de ellos.
+        </p>
+        <p class="about-text">
+          Mi compañero de ruta es <strong>Claws</strong> 🐾, un AI familiar que me ayuda con todo: 
+          desde parsear tickets del Mercadona hasta desplegar sitios. Estoy convencido de que 
+          esta es la forma de construir software a partir de ahora.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- El Reto -->
+  <section class="section reto" id="reto">
+    <div class="container">
+      <p class="section-title">La Regla</p>
+      <div class="reto-content">
+        <p class="reto-text">
+          Todo lo que ves aquí — este portfolio, GiftCal, cada línea de código — 
+          se ha construido <strong>desde el móvil, sin tocar una sola línea de código manualmente</strong>.
+        </p>
+        <p class="reto-text">
+          Puro <strong>vibe coding</strong>: conversaciones con AI, iteraciones rápidas, 
+          y dejar que la tecnología haga el trabajo mientras yo guío la visión. 
+          El teclado físico está aparcado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="section stack" id="stack">
+    <div class="container">
+      <p class="section-title">Stack</p>
+      <div class="stack-grid">
+        {stack.map(tech => (
+          <span class="stack-item">{tech}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <p class="section-title">Proyectos</p>
+      <div class="projects-grid">
+        {projects.map(project => (
+          <article class="project-card">
+            <h3 class="project-title">{project.title}</h3>
+            <p class="project-desc">{project.description}</p>
+            <div class="project-tags">
+              {project.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <a href={project.link} class="project-link">Ver más →</a>
+          </article>
+        ))}
+        
+        <!-- Placeholder for future projects -->
+        <article class="project-card project-placeholder">
+          <h3 class="project-title">¿Tienes un reto para mí?</h3>
+          <p class="project-desc">Baja un poco más y charlamos. Siempre ando buscando excusas para construir cosas con vibe coding... o para procrastinar entre proyecto y proyecto. 🥲</p>
+          <div class="project-tags">
+            <span class="tag tag-wip">¿Algo en mente?</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <p class="section-title">Contacto</p>
+      <div class="contact-content">
+        <p class="contact-text">
+          Si quieres hablar conmigo de un modo más serio, puedes escribirme a
+          <a href="mailto:avieradev@gmail.com" class="contact-email">avieradev@gmail.com</a>
+        </p>
+        
+        <div class="socials">
+          {socials.map(social => (
+            <a href={social.url} class="social-link" target="_blank" rel="noopener">
+              {social.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© {new Date().getFullYear()} Adri Viera. Built with Astro & curiosity.</p>
+    </div>
+  </footer>
+
+</Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  .hero-greeting {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-name .first {
+    display: block;
+  }
+
+  .hero-name .last {
+    display: block;
+    color: var(--text-muted);
+  }
+
+  .hero-role {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-role .accent {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .hero-location {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+  }
+
+  .btn-secondary {
+    background: var(--bg-elevated);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--text);
+  }
+
+  /* About */
+  .about {
+    background: var(--bg-elevated);
+  }
+
+  .about-content {
+    max-width: 700px;
+  }
+
+  .about-text {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .about-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Reto */
+  .reto {
+    background: var(--bg);
+  }
+
+  .reto-content {
+    max-width: 700px;
+  }
+
+  .reto-text {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .reto-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Stack */
+  .stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .stack-item {
+    padding: 0.5rem 1rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+
+  .stack-item:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  /* Projects */
+  .projects {
+    background: var(--bg-elevated);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .project-placeholder {
+    border-style: dashed;
+    opacity: 0.6;
+  }
+
+  .project-placeholder:hover {
+    opacity: 1;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-desc {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    padding: 0.25rem 0.75rem;
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 1rem;
+  }
+
+  .tag-wip {
+    background: rgba(136, 136, 136, 0.1);
+    color: var(--text-muted);
+  }
+
+  .project-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .project-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Contact */
+  .contact-content {
+    max-width: 700px;
+  }
+
+  .contact-text {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .contact-email {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 4px;
+  }
+
+  .contact-email:hover {
+    color: var(--accent);
+  }
+
+  .socials {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  .social-link:hover {
+    color: var(--text);
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+</style>
